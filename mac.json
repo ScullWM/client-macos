@@ -1,0 +1,41 @@
+{
+  "name": "Updemia",
+  "id": "com.updemia.client",
+  "version": "1.0",
+  "build-number": 1,
+  "icon": "logo2.png",
+  "dev-region": "en",
+  "deployment-target": "10.12",
+  "copyright": "Copyright © 2017 scullwm. All rights reserved",
+  "role": "None",
+  "category": "",
+  "sandbox": true,
+  "capabilities": {
+    "network": {
+      "in": false,
+      "out": true
+    },
+    "hardware": {
+      "camera": false,
+      "microphone": false,
+      "usb": false,
+      "printing": false,
+      "bluetooth": false
+    },
+    "app-data": {
+      "contacts": false,
+      "location": false,
+      "calendar": false
+    },
+    "file-access": {
+      "user-selected": "read-write",
+      "downloads": "read-write",
+      "pictures": "read-write",
+      "music": "read-write",
+      "movies": "read-write"
+    }
+  },
+  "store": false,
+  "sign-id": "",
+  "supported-files": []
+}
