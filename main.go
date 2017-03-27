@@ -47,7 +47,7 @@ func newMainWindow() app.Contexter {
 		},
 	})
 
-	hello := &Updemia{} // Creates a Hello component.
-	win.Mount(hello)    // Mounts the Hello component into the window context.
+	updemiaComponent := &Updemia{}
+	win.Mount(updemiaComponent)
 	return win
 }

@@ -11,19 +11,10 @@ type AppMainMenu struct {
 	Disabled    bool
 }
 
-// Render returns the HTML markup that describes the appearance of the
-// component.
-// In this case, the component will be mounted into a menu context.
-// This restrict the markup to a compositon of menu and menuitem.
 func (m *AppMainMenu) Render() string {
 	return `
 <menu>
     <menu label="app">
-        <menuitem label="{{if .CustomTitle}}{{.CustomTitle}}{{else}}Custom item{{end}}"
-                  shortcut="ctrl+c"
-                  onclick="OnCustomMenuClick"
-                  separator="true"
-                  disabled="{{.Disabled}}" />
         <menuitem label="Quit" shortcut="meta+q" selector="terminate:" />
     </menu>
     <WindowMenu />

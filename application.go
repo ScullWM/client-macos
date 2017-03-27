@@ -57,7 +57,6 @@ func (h *Updemia) Render() string {
         <h1>
             Hello, you
         </h1>
-        <form>
         <input type="email"
                value="{{html .Email}}"
                placeholder="What's your user email?"
@@ -71,7 +70,6 @@ func (h *Updemia) Render() string {
                onkeyup="Passphrase" required="required" />
 
          <input type="submit" value="Start" class="btn" onclick="OnUserLog" />
-         </form>
     </div>
     {{end}}
 </div>
