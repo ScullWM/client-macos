@@ -6,13 +6,13 @@ import (
 	"fmt"
 	"github.com/atotto/clipboard"
 	"github.com/howeyc/fsnotify"
+	"github.com/mitchellh/go-homedir"
 	"io"
 	"io/ioutil"
 	"log"
 	"mime/multipart"
 	"net/http"
 	"os"
-	"os/user"
 	"path/filepath"
 	"strings"
 )
@@ -61,14 +61,14 @@ func watchUploadFolder() {
 }
 
 func getDestinationPath() string {
-	usr, err := user.Current()
+	usrDir, err := homedir.Dir()
 	if err != nil {
 		log.Fatal(err)
 	}
 
 	var destination_path bytes.Buffer
 
-	destination_path.WriteString(usr.HomeDir)
+	destination_path.WriteString(usrDir)
 	destination_path.WriteString(defaultDestinationPath)
 
 	os.MkdirAll(destination_path.String(), os.ModePerm)

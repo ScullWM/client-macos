@@ -52,7 +52,7 @@ func (h *Updemia) Render() string {
     </div>
     {{else}}
     <div class="HelloBox center">
-
+        <form action="#">
         <img src="http://www.updemia.com/images/logo.png" alt="" />
         <h1>
             Hello, you
@@ -70,6 +70,7 @@ func (h *Updemia) Render() string {
                onkeyup="Passphrase" required="required" />
 
          <input type="submit" value="Start" class="btn" onclick="OnUserLog" />
+         </form>
     </div>
     {{end}}
 </div>
