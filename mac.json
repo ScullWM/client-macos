@@ -5,7 +5,7 @@
   "build-number": 1,
   "icon": "logo2.png",
   "dev-region": "en",
-  "deployment-target": "10.12",
+  "deployment-target": "10.11",
   "copyright": "Copyright © 2017 scullwm. All rights reserved",
   "role": "None",
   "category": "",
