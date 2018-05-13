@@ -1,32 +1,35 @@
 <!DOCTYPE html>
-<html lang="fr">
+<html lang="en">
 <head>
     <meta charset="UTF-8">
     <link rel="stylesheet" href="static/css/base.css"/>
-    <link href="https://fonts.googleapis.com/css?family=Montserrat" rel="stylesheet">
-    <script src="https://ajax.googleapis.com/ajax/libs/jquery/1.12.4/jquery.min.js"></script>
-    <script src="https://blueimp.github.io/JavaScript-MD5/js/md5.js"></script>
-    <title>Updemia</title>
+    <link rel="stylesheet" href="static/lib/astiloader/astiloader.css">
+    <link rel="stylesheet" href="static/lib/astimodaler/astimodaler.css">
+    <link rel="stylesheet" href="static/lib/astinotifier/astinotifier.css">
+    <link rel="stylesheet" href="static/lib/font-awesome-4.7.0/css/font-awesome.min.css">
 </head>
 <body>
-    <div class="container">
-        <div class="HelloBox center">
+    <div id="authBox">
+        <form class="HelloBox center">
             <img src="http://www.updemia.com/images/logo.png" alt="" />
-            <h1>Hello, you</h1>
-            <input type="text" value="test" placeholder="What's your user email?" autofocus="true" id="emailform" class="input-login" />
-            <input type="password" value="test" placeholder="Pass phrase" id="passwordform" class="input-login" />
+            <h1>
+                Hello, you
+            </h1>
+            <input id="email" type="email" placeholder="What's your user email?" autofocus="true" required="required" />
+            <input id="password" type="password" placeholder="Pass phrase" required="required" />
+            <button type="button" class="btn" id="authBtn">Start</button>
 
-            <p><br /></p>
-            <button class="btn" id="auth_btn">Start</button>
-
-            <p><br /></p>
-            <div id="msg" style="border:1px solid black">test</div>
-        </div>
-        <div id="imgListing">
-            <ul></ul>
-        </div>
+            <span id="userHash"></span>
+        </form>
     </div>
+    <div id="listMedia"></div>
+
+    <input type="hidden" id="userHiddenHash">
     <script src="static/js/index.js"></script>
+    <script src="static/lib/astiloader/astiloader.js"></script>
+    <script src="static/lib/astimodaler/astimodaler.js"></script>
+    <script src="static/lib/astinotifier/astinotifier.js"></script>
+    <script src="static/lib/chart/chart.min.js"></script>
     <script type="text/javascript">
         index.init();
     </script>

@@ -1,3 +1,6 @@
 client-log.log
 .DS_STORE
 *.zip
+bind_darwin_amd64.go
+output/*
+vendor/*

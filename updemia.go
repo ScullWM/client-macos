@@ -103,6 +103,7 @@ func newfileUploadRequest(uri string, paramName, path string) (*http.Request, er
 }
 
 func sendFile(filename string) {
+    fmt.Sprintf("%s", updemiaUser.Hash)
     urlStr := fmt.Sprintf("%s%s", apiPostEndpoint, updemiaUser.Hash)
 
     request, err := newfileUploadRequest(urlStr, "file", filename)
@@ -125,6 +126,9 @@ func sendFile(filename string) {
         notifyUserSuccess(response.Url)
 
         log.Printf("New upload: %+v", response.Url)
+
+        w.SendMessage("refresh")
+        log.Printf("Refresh list")
     }
 }
 

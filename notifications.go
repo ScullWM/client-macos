@@ -2,7 +2,6 @@ package main
 
 import (
     "github.com/deckarep/gosx-notifier"
-    "github.com/sadlil/go-trigger"
     "io"
     "log"
     "net/http"
@@ -26,8 +25,6 @@ func notifyUserSuccess(url string) {
     if err != nil {
         log.Println("notification error")
     }
-
-    trigger.Fire("user-newfile-success")
 }
 
 func notifyUserFail() {

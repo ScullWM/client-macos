@@ -2,29 +2,56 @@ package main
 
 import (
 	"crypto/md5"
-	"encoding/hex"
 	"encoding/json"
+	"encoding/hex"
+
 	"github.com/asticode/go-astilectron"
 	"github.com/asticode/go-astilectron-bootstrap"
 )
 
-type AuthCredential struct {
-	Email    string `json:"email"`
-	Password string `json:"password"`
+type Auth struct {
+	Email string `json:"email"`
+	Hash  string `json:"hash"`
 }
 
 // handleMessages handles messages
-func handleMessages(w *astilectron.Window, m bootstrap.MessageIn) (payload interface{}, err error) {
+func handleMessages(_ *astilectron.Window, m bootstrap.MessageIn) (payload interface{}, err error) {
 	switch m.Name {
-	case "user.auth":
+	case "hash":
+		// Unmarshal payload
+		var email string
+		if len(m.Payload) > 0 {
+			// Unmarshal payload
+			if err = json.Unmarshal(m.Payload, &email); err != nil {
+				payload = err.Error()
+				return
+			}
+		}
 
-		var a AuthCredential
-		_ = json.Unmarshal(m.Payload, &a)
+		// Explore
+		if payload, err = hash(email); err != nil {
+			payload = err.Error()
+			return
+		}
 
-		hash := md5.Sum([]byte(a.Email))
-		hashString := hex.EncodeToString(hash[:])
-
-		w.Send(bootstrap.MessageOut{Name: "list", Payload: hashString})
+		// start watching directory
+		go watchUploadFolder()
 	}
 	return
+}
+
+func hash(e string) (a Auth, err error) {
+    data := []byte(e)
+    dataHash := md5.Sum(data)
+
+    hashString := hex.EncodeToString(dataHash[:])
+    updemiaUser = Auth{Email: e, Hash: hashString}
+
+	return updemiaUser, nil
+}
+
+// PayloadDir represents a dir payload
+type Dir struct {
+	Name string `json:"name"`
+	Path string `json:"path"`
 }
