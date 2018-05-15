@@ -17,7 +17,7 @@ let index = {
                 document.getElementById("userHash").innerHTML = 'auth process';
                 index.authUser();
             }
-        })
+        });
     },
     authUser: function() {
         // Create message
@@ -60,7 +60,7 @@ let index = {
             data.forEach(function(item, i){
                 let div = document.createElement("div");
                 div.className = "media";
-                div.innerHTML = `<a href="{{html .Url}}" target="_blank" style="background-image: url('` + item.img + `');"> </a>`;
+                div.innerHTML = `<a href="`+ item.url +`" target="_blank" style="background-image: url('` + item.img + `');"> </a>`;
                 document.getElementById("listMedia").appendChild(div)
             });
           } else {

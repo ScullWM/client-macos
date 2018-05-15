@@ -15,10 +15,10 @@ This is using the bootstrap and the bundler.`
 
 // Vars
 var (
-	AppName string
-	BuiltAt string
-	debug   = flag.Bool("d", true, "enables the debug mode")
-	w       *astilectron.Window
+	AppName     string
+	BuiltAt     string
+	debug       = flag.Bool("d", true, "enables the debug mode")
+	w           *astilectron.Window
 	updemiaUser Auth
 )
 
@@ -47,6 +47,7 @@ func main() {
 		}},
 		OnWait: func(_ *astilectron.Astilectron, iw *astilectron.Window, _ *astilectron.Menu, _ *astilectron.Tray, _ *astilectron.Menu) error {
 			w = iw
+			updateScreencaptureDirectory(getDestinationPath())
 			return nil
 		},
 		MessageHandler: handleMessages,
