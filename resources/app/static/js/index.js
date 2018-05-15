@@ -23,8 +23,10 @@ let index = {
         // Create message
         let message = {
             "name": "hash",
-            "email": document.getElementById("email").value,
-            "hashKey": document.getElementById("password").value
+            "payload": {
+                "email": document.getElementById("email").value,
+                "hashKey": document.getElementById("password").value
+            }
         };
 
         asticode.loader.show();
